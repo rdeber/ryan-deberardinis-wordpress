@@ -1,0 +1,31 @@
+  ///////////////////////
+ // Logo Styles ////////
+///////////////////////
+
+.photos {
+
+	.img-with-aniamtion-wrap {
+		margin: 1rem;
+	}
+}
+
+.owl-item {
+	img {
+		filter: grayscale(100%);
+        backface-visibility: hidden;
+        perspective: 1000;
+        transform: translate3d(0,0,0);
+        transform: translateZ(0);
+        opacity: .5;
+        transition: all .25s $ease-in;
+        animation: fadeInLogo .3s $ease-in forwards;
+		//@include increment-delay($type: animation, $offset: .1s, $count: 15);
+		
+        &:hover,
+        &:focus {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.15);
+        }
+	}
+}

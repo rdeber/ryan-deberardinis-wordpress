@@ -102,11 +102,10 @@
 .input__field {
 	position: relative;
 	display: block;
-	padding: 0.8em;
-	width: 60%;
-	border: none;
-	font-weight: 400;
-	-webkit-appearance: none; /* for box shadows to show on iOS */
+	-webkit-appearance: none;
+    font-size: 1rem;
+    font-family: 'Raleway';
+    font-weight: 800;
 }
 
 .input__field:focus {
@@ -142,17 +141,19 @@
 
 .input__field--manami {
     width: 100%;
-    height: 2rem;
+    height: 2.5rem;
 	background: transparent;
     padding-top: .5em;
 	color: $text-color;
+	border: none !important;
+	box-shadow: none !important;
 	z-index: 100;
 	opacity: 0;
 }
 
 .input__label--manami {
     width: 100%;
-    height: 2rem;
+    height: 2.5rem;
 	position: absolute;
 	text-align: left;
     padding-top: .5em;
@@ -189,13 +190,6 @@
     transition-timing-function: $ease-out;
 }
 
-.input__label--manami::after {
-	height: 1px;
-	background: rgba(255,255,255,.9);
-	top: 100%;
-	transition: opacity 0.2s $ease-in;
-}
-
 .input__label-content--manami {
     font-family: $font-family2;
     color: rgba(0,0,0,.25);
@@ -216,7 +210,7 @@
 .input__field--manami:valid + .input__label--manami .input__label-content--manami,
 .input--filled .input__label--manami .input__label-content--manami {
 	color: rgba(0,0,0,.75);
-    transform: translate3d(-.5rem, -1.2rem, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(-.5rem, -1.5rem, 0) scale3d(0.65, 0.65, 1);
 }
 
 .input--manami textarea {
@@ -230,7 +224,7 @@
 
 .myForm {
     background: tint($primary-color, 95%);
-    padding: 1rem;
+    padding: .75rem 2rem 2rem;
 	border-radius: 8px;
 	
     form {
@@ -239,8 +233,7 @@
     
     input[type="submit"] {
         width: 100%;
-        height: 2.5rem;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
     }
 }
 

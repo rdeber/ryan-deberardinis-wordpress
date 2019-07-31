@@ -1,0 +1,38 @@
+  /////////////////////////
+ // Photos Styles ////////
+/////////////////////////
+
+.photos {
+    .owl-item {
+        img {
+            padding: .75rem;
+            filter: grayscale(100%);
+            backface-visibility: hidden;
+            transform: translate3d(0,0,0);
+            opacity: .4 !important;
+            transition: all .25s $ease-in;
+            //animation: fadeIn .3s $ease-in forwards;
+            //@include increment-delay($type: animation, $offset: .1s, $count: 15);
+            
+            @include lg {
+                padding: 1rem;
+            }
+    
+            &:hover,
+            &:focus {
+                filter: grayscale(0);
+                opacity: 1 !important;
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+	0% {
+        opacity: .01;
+	}
+	100% {
+		opacity: .99;
+	}
+}
