@@ -33,23 +33,41 @@
 }
 
 // Section down arrow styles.
+.nectar_icon_wrap {
+    @media only screen and (max-width : 690px) {
+        width: 100%;
+        text-align: center;
+    }
+}
 .nectar_icon {
-    opacity: .01;
-    transition: opacity 200ms ease-in;
-    transition-delay: 2000ms;
+    opacity: .5;
 
     i {
         width: auto !important;
+        animation: downward 2s infinite $ease-in;
     }
 
-    .animated-in & {
+    &:hover,
+    &:focus {
         opacity: .99;
     }
 }
+@keyframes downward {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
 
 // Separator base styles.
 .vc_separator h4 {
-    font-family: Raleway;
+    font-family: $font-family-1;
     text-transform: uppercase;
     font-size: 13px;
     line-height: 13px;
@@ -85,29 +103,69 @@
 
 
 
-// Home section animations.
-.home h1 {
-    font-size: 66px;
-    color: rgba(255,255,255,0.9);
-    text-align: center;
-    font-family: Raleway;
+// Welcome section styles.
+.welcome-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 .5rem;
+}
+.welcome h1 {
+    display: inline-block;
+    font-family: $font-family-2;
     font-weight: 900;
-    font-style: normal;
-
-    @media only screen and (max-width : 690px) {
-        font-size: 12.5vw;
-        line-height: .8;
-        text-align: left;
-        padding: 0 .5rem;
-        margin-bottom: 0.25rem !important;
+    letter-spacing: -.05rem;
+    font-size: 13vw;
+    line-height: .8;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 0.25rem !important;
+    opacity: .01;
+    transition: opacity 1ms linear;
+    transition-delay: 500ms;
+    
+    @include md {
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 0.5rem !important;
     }
 }
-.home .nectar-animated-title {
-    max-width: 95vw;
+.welcome .aos-animate h1 {
+    opacity: .99;
+}
+.welcome h2 {
+    font-family: $font-family-2;
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: .5rem 1.5rem;
+    margin: 0;
+
+    @include md {
+        font-size: 1.75rem;
+    }
+
+    &:before {
+        content: "";
+        background: $primary-color;
+        width: 100%;
+        height: 1000%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+
+.welcome .nectar-animated-title {
     
     h3 {
         @media only screen and (max-width : 690px) {
-            font-size: 4.75vw;
+            max-width: 95vw;
+            font-size: 1rem;
+            font-weight: 300;
         }
     }
 }
@@ -123,16 +181,38 @@
 
 
 // About section animations.
-.about .row-bg {
-    @media only screen and (max-width : 690px) {
-        background-position: -100px -66px;
+.about {
+    h1 {
+        font-size: 55px;
+        text-align: left;
+        font-family: 'Raleway', 'Open Sans', Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-style: normal;
+        opacity: .01;
+        transition: opacity 1ms linear;
+        transition-delay: 500ms;
+    }
+    .aos-animate h1 {
+        opacity: .99;
+    }
+    h2 {
+        font-family: 'Raleway', 'Open Sans', Arial, Helvetica, sans-serif;
+        font-weight: 300;
     }
 }
-.about h2.vc_custom_heading {
-    animation-delay: 500ms;
+.about .row-bg {
+    background-position: -85px 85px !important;
+    
+    @include md {
+        background-position: center bottom !important;
+    }
 }
+
+
+
+
 .about .nectar-highlighted-text h2 {
-    font-family: 'Raleway', 'Open Sans', Arial, Helvetica, sans-serif;
+    font-family: $font-family-2;
     font-weight: 300;
     opacity: .01;
     transition: opacity 200ms ease-in;
@@ -279,7 +359,7 @@
     div.vc_custom_heading {
         font-size: 250px;
         text-align: left;
-        font-family: Raleway;
+        font-family: $font-family-1;
         font-weight: 800;
         font-style: normal;
         position: absolute;
